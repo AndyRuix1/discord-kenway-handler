@@ -38,15 +38,18 @@ new Client(props);
 |---|---|---|---|
 | tiempo | [Number](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number) | Tiempo en MS de la frecuencia con la que cambiarán nuestros presence | No
 | presence | [Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)<[ClientPresence](#clientpresence)> | Presence's de nuestro bot | No
-* ⤵️ Elemento de la propiedad 'presence'
->| Propiedades | Tipo | Descripcion | Opcional
+* ⤵️ Elemento de la propiedad 'presence'.
+
+| Propiedades | Tipo | Descripcion | Opcional
 |---|---|---|---|
 | estado | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String)<[ClientStatusPresence](#clientstatuspresence)> | Estado que se mostrará de nuestro bot | No
 | shardId | [Number](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number) o [Number](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number)[] | Shard ID para establecer, uno o varios | Sí
 | afk | [Boolean](https://developer.mozilla.org/es/docs/Glossary/Boolean) | Establecer estado AFK de nuestro bot | Sí
 | actividad | [ActivityClientPresence](#activityclientpresence) | Propiedades adicionales para establecer la actividad de nuestro bot | No
-> * ⤵️ Propiedades dentro de la propiedad 'actividad'
->| Propiedades | Tipo | Descripcion | Opcional
+
+* ⤵️ Propiedades dentro de la propiedad 'actividad':
+
+| Propiedades | Tipo | Descripcion | Opcional
 |---|---|---|---|
 | nombre | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String) | Nombre de nuestra actividad | No
 | tipo | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String)<[ActivityTypes](#activitytypes)> | Tipo de actividad a mostrar | No
@@ -138,7 +141,7 @@ new Ventana(props);
 
 * ⤵️ Propiedades habilitadas para el tipo 'INPUT'
 
-> | Propiedades | Tipo | Descripción | Límites | Opcional
+| Propiedades | Tipo | Descripción | Límites | Opcional
 |---|---|---|---|---|
 | estilo | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String) | Estilo del componente a crear | Solo se pueden usar los estilos por defecto | No
 | placeholder | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String) | Texto de placeholder del componente | 100 Carácteres max | Sí
