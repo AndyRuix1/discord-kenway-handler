@@ -1,0 +1,35 @@
+export declare const colorConsole: {
+    reseteo: string;
+    brillante: string;
+    dim: string;
+    guionBajo: string;
+    parpadeo: string;
+    reverso: string;
+    oculto: string;
+    negro: string;
+    rojo: string;
+    verde: string;
+    amarillo: string;
+    azul: string;
+    magenta: string;
+    celeste: string;
+    blanco: string;
+    BGnegro: string;
+    BGrojo: string;
+    BGverde: string;
+    BGamarillo: string;
+    BGazul: string;
+    BGmagenta: string;
+    BGceleste: string;
+    BGblanco: string;
+};
+export declare const infoConsole: {
+    developer: string;
+    bot: string;
+    warn: string;
+    error: string;
+    comando: string;
+    evento: string;
+    info: string;
+    presence: string;
+};
