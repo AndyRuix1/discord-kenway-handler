@@ -33,7 +33,9 @@ new Client(props);
 | props#_eventos_ | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String) o [Boolean](https://developer.mozilla.org/es/docs/Glossary/Boolean) | Dirección de carpeta donde están ubicados los comandos | No
 | props#_setPresence_ | [SetPresenceOptions](#setpresenceoptions) | Propiedades adicionales para creación de presence en nuestro bot | Sí
 * ❗ <mark> La propiedad 'eventos' y 'comandos' pueden establecerse como 'false' para omitir la dirección de carpetas. </mark>
-* ⤵️ Propiedades de la propiedad 'setPresence'
+
+* ⤵️ Propiedades de la propiedad 'setPresence':
+
 | Propiedades | Tipo | Descripcion | Opcional
 |---|---|---|---|
 | tiempo | [Number](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number) | Tiempo en MS de la frecuencia con la que cambiarán nuestros presence | No
