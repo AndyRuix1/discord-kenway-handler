@@ -35,7 +35,7 @@ class Client extends discord_js_1.Client {
      */
     constructor(props) {
         var _a;
-        const allIntents = ["ALL", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS", "DIRECT_MESSAGE_TYPING", "GUILDS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_INTEGRATIONS", "GUILD_INVITES", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "GUILD_MESSAGE_TYPING", "GUILD_PRESENCES", "GUILD_SCHEDULED_EVENTS", "GUILD_VOICE_STATES", "GUILD_WEBHOOKS"];
+        const allIntents = ["ALL",];
         if (!props.hasOwnProperty('token') || typeof props.token != 'string')
             throw new index_1.Error('Cliente', index_1.Info.ERRORS.CLIENT.NO_TOKEN);
         if (!props.hasOwnProperty('id') || typeof props.id != 'string')
@@ -60,11 +60,14 @@ class Client extends discord_js_1.Client {
             throw new index_1.Error('Cliente', index_1.Info.ERRORS.CLIENT.CMD_PATH_INVALID);
         if (typeof props.eventos == 'string' && !fs_1.default.existsSync(props.eventos))
             throw new index_1.Error('Cliente', index_1.Info.ERRORS.CLIENT.EVT_PATH_INVALID);
-        const allIntentsToPut = new discord_js_1.Intents(["DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS", "DIRECT_MESSAGE_TYPING", "GUILDS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_INTEGRATIONS", "GUILD_INVITES", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "GUILD_MESSAGE_TYPING", "GUILD_PRESENCES", "GUILD_SCHEDULED_EVENTS", "GUILD_VOICE_STATES", "GUILD_WEBHOOKS"]);
-        const customIntents = props.intents.map(intent => intent != 'ALL' ? intent : null);
-        const customIntentsToPut = new discord_js_1.Intents(customIntents);
+        const IntentsFlags = { DIRECT_MESSAGES: discord_js_1.Intents.FLAGS.DIRECT_MESSAGES, DIRECT_MESSAGE_REACTIONS: discord_js_1.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS, DIRECT_MESSAGE_TYPING: discord_js_1.Intents.FLAGS.DIRECT_MESSAGE_TYPING, GUILDS: discord_js_1.Intents.FLAGS.GUILDS, GUILD_BANS: discord_js_1.Intents.FLAGS.GUILD_BANS, GUILD_EMOJIS_AND_STICKERS: discord_js_1.Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, GUILD_INTEGRATIONS: discord_js_1.Intents.FLAGS.GUILD_INTEGRATIONS, GUILD_INVITES: discord_js_1.Intents.FLAGS.GUILD_INVITES, GUILD_MEMBERS: discord_js_1.Intents.FLAGS.GUILD_MEMBERS, GUILD_MESSAGES: discord_js_1.Intents.FLAGS.GUILD_MESSAGES, GUILD_MESSAGE_REACTIONS: discord_js_1.Intents.FLAGS.GUILD_MESSAGE_REACTIONS, GUILD_MESSAGE_TYPING: discord_js_1.Intents.FLAGS.GUILD_MESSAGE_TYPING, GUILD_PRESENCES: discord_js_1.Intents.FLAGS.GUILD_PRESENCES, GUILD_SCHEDULED_EVENTS: discord_js_1.Intents.FLAGS.GUILD_SCHEDULED_EVENTS, GUILD_VOICE_STATES: discord_js_1.Intents.FLAGS.GUILD_VOICE_STATES, GUILD_WEBHOOKS: discord_js_1.Intents.FLAGS.GUILD_WEBHOOKS };
+        const intentsToPut = new discord_js_1.Intents();
+        if (props.intents.some(intent => intent.includes('ALL')))
+            intentsToPut.add(32767);
+        else
+            props.intents.forEach(intent => intentsToPut.add(IntentsFlags[intent]));
         super({
-            intents: props.intents.some(intent => intent.includes('ALL')) ? allIntentsToPut : customIntentsToPut,
+            intents: intentsToPut,
             partials: (_a = props.partials) !== null && _a !== void 0 ? _a : undefined
         });
         this.clientToken = props.token;
@@ -95,7 +98,8 @@ class Client extends discord_js_1.Client {
             this.eventsToExec.map(evento => {
                 if (evento.nombre == 'message' || evento.nombre == 'messageCreate')
                     return this.on('messageCreate', message => evento.ejecutar(this, message, message.content.slice(0).trim().split(/ +/g)));
-                this.on(evento.nombre, (...args) => evento.ejecutar(this, ...args));
+                //@ts-ignore
+                return this.on(evento.nombre, (...args) => evento.ejecutar(this, ...args));
             });
             this.commandsToExec.map(comando => {
                 this.on('interactionCreate', Interaction => {
@@ -255,27 +259,10 @@ class Evento {
      * @param props.nombre * Nombre del evento a ejecutar.
      * @param props.ejecutar * Función que se ejecutará cuando el evento sea invocado. Los argumentos que retornarán, dependerán del evento invocado.
      * @returns Ejecución de metodo 'ejecutar' cuando el evento sea invocado.
-     * @example
-     * const { Evento } = require('...');
-     * module.exports = new Evento({
-     * nombre: 'messageCreate',
-     * ejecutar: (client, msg, args) => {
-     * //Evento "message".
-     * }
-     * });
-     *
-     * //Ejemplo con evento ready:
-     *
-     * const { evento } = require('...');
-     * module.exports = new Evento({
-     * nombre: 'ready',
-     * ejecutar: (client) => {
-     * console.info('ready');
-     * }
-     * })
      */
     constructor(props) {
         this.nombre = props.nombre;
+        //@ts-ignore
         this.ejecutar = props.ejecutar;
     }
     ;

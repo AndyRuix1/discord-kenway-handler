@@ -17,6 +17,19 @@ puedes volver aquí para ver la información de cambios de las diferentes versio
 
 # 📜 Versiones
 
+## v1.1.1 (Estable)
+
+```
+ • Solución de errores pequeños.
+ • En creación de eventos, la propiedad 'ejecutar' retonará los argumentos correspondientes al evento solicitado.
+ • Se corrigió el problema con el intent 'ALL' con su error 'no bitfield'. Ahora todo funciona con normalidad.
+ • Se actualizaron todas las dependencias, incluyendo discord.js@13.8++
+ • El código fuente ahora está compilado en una versión superior a la anterior de ES.
+ • Se optimizaron algunas funciones internas.
+ • Ahora, se exporta el cliente de Discord.js original como 'OriginalClient'.
+```
+
+
 ## v1.1.0 (Experimental)
 
 ```

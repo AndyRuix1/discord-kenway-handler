@@ -2,6 +2,9 @@
     <img style="border-radius: 23px; width: 90%" src="https://www.linkpicture.com/q/dc-kenway-docs_1.png"/>
 </div>
 
+<br>
+<br>
+
 # 📃 Documentación • discord-kenway-handler
 
 ¡Hola! Esta es la sección de documentación de discord-kenway-handler.
@@ -20,6 +23,7 @@ $ npm i discord-kenway-handler
 Clase principal utilizada para la creación de un cliente nuevo.
 * Se deben ingresar propiedades como opciones en el constructor.
 > Interface: [CreateClient](#createclient)
+
 ```js
 new Client(props);
 ```
@@ -33,9 +37,7 @@ new Client(props);
 | props#_eventos_ | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String) o [Boolean](https://developer.mozilla.org/es/docs/Glossary/Boolean) | Dirección de carpeta donde están ubicados los comandos | No
 | props#_setPresence_ | [SetPresenceOptions](#setpresenceoptions) | Propiedades adicionales para creación de presence en nuestro bot | Sí
 * ❗ <mark> La propiedad 'eventos' y 'comandos' pueden establecerse como 'false' para omitir la dirección de carpetas. </mark>
-
-* ⤵️ Propiedades de la propiedad 'setPresence':
-
+* ⤵️ Propiedades de la propiedad 'setPresence'
 | Propiedades | Tipo | Descripcion | Opcional
 |---|---|---|---|
 | tiempo | [Number](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number) | Tiempo en MS de la frecuencia con la que cambiarán nuestros presence | No
@@ -58,8 +60,6 @@ new Client(props);
 | url | [String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String) | URL de la actividad en caso de estar disponible | Sí
 
 
-
-
 ## Evento
 Se utiliza para la creación de nuevos eventos.
 * Se deben ingresar propiedades como opciones en el constructor.
@@ -78,12 +78,12 @@ new Evento(props);
 |props#_ejecutar_ | [client](https://discord.js.org/#/docs/discord.js/stable/class/Client), ...args | Función a ejecutar cuando el evento sea invocado | No | [void](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/void) 
 
 * ❗ <mark>Los parámetros a retornar dependerán del tipo evento, siempre se retorna el cliente en primer parámetro, los demás parámetros se devolveran dependiendo del evento establecido en la propiedad 'nombre'. </mark>
+
 ```js
 new Evento({
     ejecutar: (client, ...args) => {}
 });
 ```
-
 
 ## Comando
 Se utiliza para la creación de nuevos comandos.
@@ -106,12 +106,12 @@ new Comando(props);
 * ❗ <mark>ninguna propiedad 'nombre' puede contener espacios ni mayúsculas.</mark>
 * ❗ <mark>Entre todas las propiedades, sumando sus carácteres lo máximo son 4000.</mark>
 
-
 <br>
 
 | Métodos | Parámetros | Descripción | Retorno
 |---|---|---|---|
 |props#_ejecutar_ | [client](https://discord.js.org/#/docs/discord.js/stable/class/Client), [interaction](https://discord.js.org/#/docs/discord.js/stable/class/CommandInteraction) (CommandInteraction)| Función a ejecutar cuando el comando sea invocado | [void](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/void)
+
 ```js
 new Comando({
     ejecutar: (client, interaction) => {}
@@ -122,6 +122,7 @@ new Comando({
 Se utiliza para la creación de ventanas (modals) sin remplazar la clase original y simplificando su uso.
 * Se deben ingresar propiedades como opciones en el constructor.
 > Interface: [CreateModalInterface](#createmodalinterface)
+
 ```js
 new Ventana(props);
 ```

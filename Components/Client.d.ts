@@ -3,8 +3,8 @@ import { ClientPresence, CommandExec, IntentsClient, CreateClient, CreateCommand
 export declare class Client extends DiscordKenwayClient {
     private clientToken;
     private clientId;
-    private hasPresence;
     readonly intents: IntentsClient[];
+    private hasPresence;
     private readonly path_comandos;
     private readonly path_eventos;
     private readonly commandsToPut;
@@ -35,31 +35,13 @@ export declare class Client extends DiscordKenwayClient {
 }
 export declare class Evento {
     nombre: string;
-    protected ejecutar: EventExec;
+    protected ejecutar: EventExec<'ready'>;
     /**
      * * Creación de un Evento.
      * @param props * Propiedades para creación de evento.
      * @param props.nombre * Nombre del evento a ejecutar.
      * @param props.ejecutar * Función que se ejecutará cuando el evento sea invocado. Los argumentos que retornarán, dependerán del evento invocado.
      * @returns Ejecución de metodo 'ejecutar' cuando el evento sea invocado.
-     * @example
-     * const { Evento } = require('...');
-     * module.exports = new Evento({
-     * nombre: 'messageCreate',
-     * ejecutar: (client, msg, args) => {
-     * //Evento "message".
-     * }
-     * });
-     *
-     * //Ejemplo con evento ready:
-     *
-     * const { evento } = require('...');
-     * module.exports = new Evento({
-     * nombre: 'ready',
-     * ejecutar: (client) => {
-     * console.info('ready');
-     * }
-     * })
      */
     constructor(props: CreateEvent);
 }

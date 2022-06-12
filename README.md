@@ -2,8 +2,11 @@
     <img style="margin: 10px auto; width: 90%; border-radius: 25px;" src="https://www.linkpicture.com/q/dc-kenway-fw.png"/>
 </div>
 
+<br>
 
->discord-kenway-handler es un framework de la librería [Discord.js@13.7+](https://www.npmjs.com/package/discord.js) que te ayudará a crear tu bot en Discord App utilizando sus últimas funciones y opciones disponibles para el desarrollo de tu bot de la manera más simplificada y moderna posible, completamente en español.
+>discord-kenway-handler es un framework de la librería [Discord.js@13.8+](https://www.npmjs.com/package/discord.js) que te ayudará a crear tu bot en Discord App utilizando sus últimas funciones y opciones disponibles para el desarrollo de tu bot de la manera más simplificada y moderna posible, completamente en español.
+<br>
+<br>
 
 ## 🌀 ¿Por qué usar?
 
@@ -17,21 +20,37 @@
 * Escrito en TypeScript.
 * Compatible con TypeScript.
 
-## ⚙️ Actualización: 1.0.4
+## ⚙️ Actualización: v1.1.1
+
 Información de la nueva versión del paquete:
+
 ```
- • Ahora en la creación de cliente, en el arreglo de intents se puede usar 'ALL' para usar todos.
- • Ahora se pueden crear ventanas (modals) de manera más simplificada sin remplazar la clase original.
- • Pequeños problemas ortográficos corregidos.
- • Pequeños errores internos corregidos.
- • Problemas con autocompletado solucionados.
- • Ahora no es obligatorio dejar la propiedad 'opciones' como arreglo vacio cuando no se usará, ahora es una propiedad opcional.
- • Ahora en la creación de comandos, no es obligatorio dejar la propiedad 'sub_comandos' como arreglo vacío cuando no se usará, ahora es una propiedad opcional.
- • Ahora en la creación de comandos, no es obligatorio dejar la propiedad 'opciones' dentro de un elemento 'opciones' como arreglo vacío, ahora es una propiedad opcional.
- • Ahora se mostrará el Tag del cliente al finalizar la carga general.
- • Documentación mejorada.
+ • Solución de errores pequeños.
+ • En creación de eventos, la propiedad 'ejecutar' retonará los argumentos correspondientes al evento solicitado.
+ • Se corrigió el problema con el intent 'ALL' con su error 'no bitfield'. Ahora todo funciona con normalidad.
+ • Se actualizaron todas las dependencias, incluyendo discord.js@13.8++
+ • El código fuente ahora está compilado en una versión superior a la anterior de ES.
+ • Se optimizaron algunas funciones internas.
+ • Ahora, se exporta el cliente de Discord.js original como 'OriginalClient'.
 ```
 
+##### [Ver Historial de Cambios](https://github.com/AndyRuix1/discord-kenway-handler/blob/main/CHANGELOG.md)
+<br>
+
+# 📇 Índice
+Bienvenido/a, esta es la guía para navegación en la página.
+> * [Instalación](#📥-instalación)
+> * [Instanciar Nuevo Bot](#🛠-instanciar-un-nuevo-bot)
+> * [Creación de Comandos](#🛠️-creación-de-comandos)
+> * [Creación de Eventos](#🛠️-creación-de-un-evento)
+> * [Clases Especiales](#🔅-clases-especiales)
+> * * [Ventana](#ventana)
+> * [Notas Adicionales](#⚠️-notas-adicionales)
+> * [Reportar problema](#🐛-¿problemas--bugs)
+> * [Equpo de Desarrollo](#🔩-desarrolladores)
+
+<br>
+<br>
 
 # 📥 Instalación:
 ```console
@@ -45,7 +64,7 @@ $ npm i discord-kenway-handler
 const kenwayDiscord = require('discord-kenway-handler');
 ```
 
-### TypeScript:
+### ES Import:
 
 ```js
 import kenwayDiscord from 'discord-kenway-handler'; 
@@ -298,7 +317,7 @@ module.exports = new Evento({
     }
 });
 ```
-* ❗ <mark>Los parámetros devueltos dependerán del tipo de comando.</mark>
+* ❗ <mark>Los parámetros devueltos dependerán del tipo de comando, no te preocupes, se autocompletarán dependiendo del evento.</mark>
 * ❗ <mark>El primer parámetro **siempre** es _client_</mark>
 
 # 🔅 Clases Especiales
@@ -358,7 +377,7 @@ const miVentana = new Ventana({
 **Ejemplo de una ventana en un comando:**
 
 ```js
-const { Comando } = require('discord-kenway-handler');
+const { Comando, Ventana } = require('discord-kenway-handler');
 module.exports = new Comando({
     nombre: 'edad',
     descripcion: 'dime tu edad',
@@ -402,13 +421,12 @@ También, te ayuda a reducir el consumo de recursos ya que las ventanas son leí
 # 🔩 Desarrolladores
 * [AndyKenway#2531](https://discordapp.com/users/340757879915151361)
 
+<br>
+<br>
 
----
-> Basado en discord.js, se utiliza el módulo original.
+###### Basado en discord.js, se utiliza el módulo original para funcionamiento de este framework.
 
 **Gracias por utilizar.**
-<br>
-<br>
 <br>
 <div style="display: flex; justify-content: center; ">
     <img style="border-radius: 23px; width: 50%" src="https://media.giphy.com/media/caD7wkiDRP307AY9Bb/giphy.gif"/>

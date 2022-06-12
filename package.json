@@ -1,7 +1,7 @@
 {
   "name": "discord-kenway-handler",
-  "version": "1.1.0",
-  "description": "Framework para Discord ^v13.7, usando Discord Slash Commands nativamente, totalmente en español.",
+  "version": "1.1.1",
+  "description": "Framework para Discord ^v13.8, usando Discord Slash Commands nativamente, completamente en español.",
   "main": "index.js",
   "author": "AndyKenway#2531",
   "engines": {
@@ -9,26 +9,15 @@
   },
   "keywords": [
     "discord",
-    "discordjs",
-    "discordjs handler",
-    "discord.js handler español",
-    "discordjs handler español",
-    "discordjs command handler",
-    "discord.js manejador de comandos español",
-    "discord handler",
-    "discordjs 13.7",
-    "discord.js 13.7",
-    "discord handler 13.7",
-    "discord slash commands",
-    "discordjs slash commands",
-    "discordjs command handler con typescript",
-    "discordjs command handler ts",
-    "ts discord.js"
+    "discord.ts",
+    "discord js español",
+    "discord spanish",
+    "discord español"
   ],
   "license": "MIT",
   "dependencies": {
-    "@discordjs/rest": "^0.4.1",
-    "discord-api-types": "^0.32.1",
-    "discord.js": "^13.7.0"
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.33.5",
+    "discord.js": "^13.8.0"
   }
 }
