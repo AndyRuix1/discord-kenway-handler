@@ -35,7 +35,7 @@ class Client extends discord_js_1.Client {
      */
     constructor(props) {
         var _a;
-        const allIntents = ["ALL",];
+        const allIntents = ["ALL", 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_TYPING', 'GUILDS', 'GUILD_BANS', 'GUILD_EMOJIS_AND_STICKERS', 'GUILD_INTEGRATIONS', 'GUILD_INVITES', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'GUILD_PRESENCES', 'GUILD_SCHEDULED_EVENTS', 'GUILD_VOICE_STATES', 'GUILD_WEBHOOKS'];
         if (!props.hasOwnProperty('token') || typeof props.token != 'string')
             throw new index_1.Error('Cliente', index_1.Info.ERRORS.CLIENT.NO_TOKEN);
         if (!props.hasOwnProperty('id') || typeof props.id != 'string')
@@ -66,10 +66,7 @@ class Client extends discord_js_1.Client {
             intentsToPut.add(32767);
         else
             props.intents.forEach(intent => intentsToPut.add(IntentsFlags[intent]));
-        super({
-            intents: intentsToPut,
-            partials: (_a = props.partials) !== null && _a !== void 0 ? _a : undefined
-        });
+        super({ intents: intentsToPut, partials: (_a = props.partials) !== null && _a !== void 0 ? _a : undefined });
         this.clientToken = props.token;
         this.clientId = props.id;
         this.path_comandos = props.comandos;
@@ -101,11 +98,14 @@ class Client extends discord_js_1.Client {
                 //@ts-ignore
                 return this.on(evento.nombre, (...args) => evento.ejecutar(this, ...args));
             });
-            this.commandsToExec.map(comando => {
-                this.on('interactionCreate', Interaction => {
-                    if (Interaction.isCommand() && Interaction.commandName == comando.nombre)
-                        return comando.ejecutar(this, Interaction);
-                });
+            this.on('interactionCreate', interaction => {
+                if (interaction.isCommand()) {
+                    const cmd = this.commandsToExec.find(x => x.nombre === interaction.commandName);
+                    if (!cmd)
+                        return;
+                    return cmd.ejecutar(this, interaction);
+                }
+                ;
             });
             this.on('ready', () => {
                 this.botLaunched = true;
@@ -133,7 +133,7 @@ class Client extends discord_js_1.Client {
     _changePresence() {
         var _a, _b;
         const presence = this.setPresence.presence[Math.floor(Math.random() * this.setPresence.presence.length)];
-        let type = {
+        const type = {
             compitiendo: 'COMPETING',
             escuchando: 'LISTENING',
             jugando: 'PLAYING',
@@ -214,8 +214,8 @@ class Client extends discord_js_1.Client {
             ;
             for (var file of commandsFiles) {
                 const commandFile = require(path_1.default.join(this.path_comandos.toString(), file));
-                yield (0, Comando_1.checkCommand)(commandFile);
-                const commandBuilder = yield (0, Comando_1.buildCommand)(commandFile);
+                yield Comando_1.checkCommand(commandFile);
+                const commandBuilder = yield Comando_1.buildCommand(commandFile);
                 this.commandsToExec.push(commandFile);
                 this.commandsToPut.push(commandBuilder.toJSON());
                 console.info(index_1.Info.LOAD.COMMAND_LOADED(file));
@@ -239,7 +239,7 @@ class Client extends discord_js_1.Client {
             ;
             for (var eventFile of eventFiles) {
                 const event = yield require(path_1.default.join(this.path_eventos.toString(), eventFile));
-                yield (0, Evento_1.checkEvent)(event);
+                yield Evento_1.checkEvent(event);
                 this.eventsToExec.push(event);
                 console.info(index_1.Info.LOAD.EVENT_LOADED(eventFile));
             }

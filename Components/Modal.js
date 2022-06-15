@@ -25,6 +25,10 @@ class Ventana {
         this.id = props.id;
     }
     ;
+    /**
+     *
+     * @returns * Ventana ya creada para insertar.
+     */
     crear() {
         const ModalCreated = new discord_js_1.Modal()
             .setTitle(this.titulo)

@@ -5,13 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Console_1 = require("./Console");
 const Error_1 = __importDefault(require("./Error"));
-const error = Console_1.infoConsole.error;
-const dev = Console_1.infoConsole.developer;
-const bot = Console_1.infoConsole.bot;
-const cmd = Console_1.infoConsole.comando;
-const evt = Console_1.infoConsole.evento;
-const warn = Console_1.infoConsole.warn;
-const prc = Console_1.infoConsole.presence;
+const { error, developer, bot, comando, evento, warn, presence } = Console_1.infoConsole;
 const returnLoadInfo = (info) => `${Console_1.colorConsole.celeste} ** ${Console_1.colorConsole.amarillo} ${info} ${Console_1.colorConsole.blanco}`;
 exports.default = {
     ERRORS: {
@@ -149,26 +143,26 @@ exports.default = {
     },
     LOAD: {
         //. CARGA GENERAL:
-        END: (time, data) => `${Console_1.infoConsole.info} Información de Carga:\n${returnLoadInfo(data.eventos)} evento(s) cargado(s).\n${returnLoadInfo(data.comandos)} comando(s) cargado(s).\n${returnLoadInfo(data.presences)} presence(s) cargado(s).\n${returnLoadInfo(data.users)} usuario(s) encontrado(s).\n${returnLoadInfo(data.servers)} servidor(es) encontrado(s).\n${dev} Se ha finalizado la carga general en ${Console_1.colorConsole.verde}${time}${Console_1.colorConsole.blanco}\n${bot} Iniciado satisfactoriamente como ${Console_1.colorConsole.azul}${data.bot}${Console_1.colorConsole.blanco}`,
-        START: `${dev} Se ha iniciado la carga general.`,
+        END: (time, data) => `${Console_1.infoConsole.info} Información de Carga:\n${returnLoadInfo(data.eventos)} evento(s) cargado(s).\n${returnLoadInfo(data.comandos)} comando(s) cargado(s).\n${returnLoadInfo(data.presences)} presence(s) cargado(s).\n${returnLoadInfo(data.users)} usuario(s) encontrado(s).\n${returnLoadInfo(data.servers)} servidor(es) encontrado(s).\n${developer} Se ha finalizado la carga general en ${Console_1.colorConsole.verde}${time}${Console_1.colorConsole.blanco}\n${bot} Iniciado satisfactoriamente como ${Console_1.colorConsole.azul}${data.bot}${Console_1.colorConsole.blanco}`,
+        START: `${developer} Se ha iniciado la carga general.`,
         DELAY_10: `${warn} La carga continúa pero tiene retraso (10s)`,
         DELAY_30: `${warn} La carga continúa pero tiene mucho retraso (30s), se recomienda reiniciar el servidor.`,
         //. CARGA DE COMANDOS:
-        START_COMMAND: `${cmd} Se ha iniciado la carga de comandos.`,
-        NO_COMMANDS_FOUND: `${cmd} Ningún comando ha sido encontrado.`,
-        COMMAND_LOADED: (file) => `${cmd} Se ha cargado correctamente el comando ${Console_1.colorConsole.amarillo}${file}${Console_1.colorConsole.blanco}.`,
-        ALL_COMMAND_LOADED: `${cmd} La carga de comandos ha finalizado.`,
+        START_COMMAND: `${comando} Se ha iniciado la carga de comandos.`,
+        NO_COMMANDS_FOUND: `${comando} Ningún comando ha sido encontrado.`,
+        COMMAND_LOADED: (file) => `${comando} Se ha cargado correctamente el comando ${Console_1.colorConsole.amarillo}${file}${Console_1.colorConsole.blanco}.`,
+        ALL_COMMAND_LOADED: `${comando} La carga de comandos ha finalizado.`,
         //. CARGA DE EVENTOS:
-        START_EVENTS: `${evt} Se ha iniciado la carga de eventos.`,
-        NO_EVENTS_FOUND: `${evt} Ningún evento ha sido encontrado.`,
-        EVENT_LOADED: (file) => `${evt} Se ha cargado correctamente el evento ${Console_1.colorConsole.amarillo}${file}${Console_1.colorConsole.blanco}.`,
-        ALL_EVENT_LOADED: `${evt} La carga de eventos ha finalizado.`,
+        START_EVENTS: `${evento} Se ha iniciado la carga de eventos.`,
+        NO_EVENTS_FOUND: `${evento} Ningún evento ha sido encontrado.`,
+        EVENT_LOADED: (file) => `${evento} Se ha cargado correctamente el evento ${Console_1.colorConsole.amarillo}${file}${Console_1.colorConsole.blanco}.`,
+        ALL_EVENT_LOADED: `${evento} La carga de eventos ha finalizado.`,
         //. CARGA DE PRESENCE:
-        START_PRESENCE: `${prc} La carga de presence ha iniciado.`,
-        NO_PRESENCES: `${prc} No se encontraron propiedades para crear presences.`,
-        PRESENCE_LOADED: (presenceName) => `${prc} El presence "${Console_1.colorConsole.amarillo}${presenceName}${Console_1.colorConsole.blanco}" se ha cargado correctamente.`,
-        ALL_PRESENCE_LOADED: `${prc} La carga de presence ha finalizado.`,
-        WARN_STRUCTURE_PRESENCE: `${prc} Se encontraron las propiedades de 'setPresence' incompletas, así que no se tomarán en cuenta.`
+        START_PRESENCE: `${presence} La carga de presence ha iniciado.`,
+        NO_PRESENCES: `${presence} No se encontraron propiedades para crear presences.`,
+        PRESENCE_LOADED: (presenceName) => `${presence} El presence "${Console_1.colorConsole.amarillo}${presenceName}${Console_1.colorConsole.blanco}" se ha cargado correctamente.`,
+        ALL_PRESENCE_LOADED: `${presence} La carga de presence ha finalizado.`,
+        WARN_STRUCTURE_PRESENCE: `${presence} Se encontraron las propiedades de 'setPresence' incompletas, así que no se tomarán en cuenta.`
     }
 };
 //# sourceMappingURL=Info.js.map

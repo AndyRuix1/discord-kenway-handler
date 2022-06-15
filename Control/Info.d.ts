@@ -1,5 +1,4 @@
 import Error from './Error';
-declare const bot: string;
 declare const _default: {
     ERRORS: {
         CUSTOM_ERROR: (type: String, errorMessage: String, errorObject?: Error) => Error;

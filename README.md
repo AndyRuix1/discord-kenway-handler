@@ -20,18 +20,13 @@
 * Escrito en TypeScript.
 * Compatible con TypeScript.
 
-## ⚙️ Actualización: v1.1.1
+## ⚙️ Actualización: v1.1.2
 
 Información de la nueva versión del paquete:
 
 ```
  • Solución de errores pequeños.
- • En creación de eventos, la propiedad 'ejecutar' retonará los argumentos correspondientes al evento solicitado.
- • Se corrigió el problema con el intent 'ALL' con su error 'no bitfield'. Ahora todo funciona con normalidad.
- • Se actualizaron todas las dependencias, incluyendo discord.js@13.8++
- • El código fuente ahora está compilado en una versión superior a la anterior de ES.
- • Se optimizaron algunas funciones internas.
- • Ahora, se exporta el cliente de Discord.js original como 'OriginalClient'.
+ • Optimización de funciones de creación de comandos.
 ```
 
 ##### [Ver Historial de Cambios](https://github.com/AndyRuix1/discord-kenway-handler/blob/main/CHANGELOG.md)

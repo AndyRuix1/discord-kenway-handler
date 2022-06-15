@@ -1,11 +1,11 @@
 {
   "name": "discord-kenway-handler",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Framework para Discord ^v13.8, usando Discord Slash Commands nativamente, completamente en español.",
   "main": "index.js",
   "author": "AndyKenway#2531",
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   },
   "keywords": [
     "discord",

@@ -17,6 +17,13 @@ puedes volver aquí para ver la información de cambios de las diferentes versio
 
 # 📜 Versiones
 
+## v1.1.2 (Estable)
+
+```
+ • Solución de errores pequeños.
+ • Optimización de funciones de creación de comandos.
+```
+
 ## v1.1.1 (Estable)
 
 ```
