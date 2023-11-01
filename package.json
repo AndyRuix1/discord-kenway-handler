@@ -1,8 +1,9 @@
 {
   "name": "discord-kenway-handler",
-  "version": "1.1.2",
-  "description": "Framework para Discord ^v13.8, usando Discord Slash Commands nativamente, completamente en español.",
+  "version": "1.1.3",
+  "description": "Obsoleto, se recomienda usar 'discord-kenway-framework' | Framework para Discord ^v13.8, usando Discord Slash Commands nativamente, completamente en español.",
   "main": "index.js",
+  "deprecated": "Este paquete está obsoleto. Se recomienda utilizar discord-kenway-framework como alternativa más actualizada.",
   "author": "AndyKenway#2531",
   "engines": {
     "node": "16.x"

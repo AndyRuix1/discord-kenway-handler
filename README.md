@@ -1,3 +1,8 @@
+### ⚠️ **Este paquete está obsoleto y ya no se mantiene activamente.** Se recomienda utilizar el paquete [discord-kenway-framework](https://www.npmjs.com/package/discord-kenway-framework) como alternativa más actualizada y con soporte continuo.
+
+
+> **Importante**: Este paquete ya no recibirá nuevas actualizaciones ni correcciones de errores. Se recomienda migrar a [discord-kenway-framework](https://www.npmjs.com/package/discord-kenway-framework) para aprovechar las últimas características y mejoras.
+
 <div style="display: flex; justify-content: center;">
     <img style="margin: 10px auto; width: 90%; border-radius: 25px;" src="https://www.linkpicture.com/q/dc-kenway-fw.png"/>
 </div>
